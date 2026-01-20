@@ -23,16 +23,16 @@ const siteConfig = {
     // posthogAnalytics: {
     //   posthogProjectApiKey: '', // e.g. 123e4567-e89b-12d3-a456-426614174000
     // },
-    // googleAnalytics: {
-    //   googleAnalyticsId: '', // e.g. G-XXXXXXX
-    // },
+    googleAnalytics: {
+      googleAnalyticsId: process.env.NEXT_PUBLIC_GA_ID || '', // e.g. G-XXXXXXX
+    },
   },
 
   newsletter: {
     // Optional: enable newsletter
     // provider: 'emailoctopus',
   },
-  search: true, // Enable or disable search
+  search: false, // Disable search for now
 };
 
 module.exports = { siteConfig };

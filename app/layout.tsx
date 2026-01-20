@@ -1,34 +1,18 @@
-import { Nunito_Sans } from 'next/font/google';
+import { Inter } from 'next/font/google';
 import { siteConfig } from '@/data/config/site.settings';
 import { ThemeProviders } from './theme-providers';
 import { Metadata } from 'next';
 
-import { colors } from '@/data/config/colors.js';
-
 import '@/css/globals.css';
 import { SearchProvider } from '@/components/shared/SearchProvider';
 import { AnalyticsWrapper } from '@/components/shared/Analytics';
+import { Header } from '@/components/shared/Header';
+import { Footer } from '@/components/shared/Footer';
 
-const displayFont = Nunito_Sans({
+const inter = Inter({
   subsets: ['latin'],
   display: 'swap',
-  variable: '--font-space-display',
-});
-
-const baseFont = Nunito_Sans({
-  subsets: ['latin'],
-  display: 'swap',
-  variable: '--font-space-default',
-});
-
-const globalColors = colors;
-const style: string[] = [];
-
-Object.keys(globalColors).map((variant) => {
-  return Object.keys(globalColors[variant]).map((color) => {
-    const value = globalColors[variant][color];
-    style.push(`--${variant}-${color}: ${value}`);
-  });
+  variable: '--font-inter',
 });
 
 export const metadata: Metadata = {
@@ -79,18 +63,10 @@ export default function RootLayout({
   return (
     <html
       lang={siteConfig.language}
-      className={`${baseFont.variable} ${displayFont.variable} scroll-smooth`}
+      className={`${inter.variable} scroll-smooth`}
       suppressHydrationWarning
     >
       <head>
-        <style>
-          {`
-          :root, :before, :after {
-            ${style.join(';')}
-          }
-        `}
-        </style>
-
         <link
           rel="apple-touch-icon"
           sizes="76x76"
@@ -112,34 +88,32 @@ export default function RootLayout({
         <link
           rel="mask-icon"
           href="/static/favicons/safari-pinned-tab.svg"
-          color="#5bbad5"
+          color="#1f514c"
         />
-        <meta name="generator" content="Shipixen" />
-        <meta name="msapplication-TileColor" content="#000000" />
+        <meta name="msapplication-TileColor" content="#1f514c" />
         <meta
           name="theme-color"
           media="(prefers-color-scheme: light)"
-          content="#fff"
+          content="#fffffb"
         />
         <meta
           name="theme-color"
           media="(prefers-color-scheme: dark)"
-          content="#000"
+          content="#143632"
         />
         <link rel="alternate" type="application/rss+xml" href="/feed.xml" />
       </head>
 
-      <body className="flex flex-col bg-white text-black antialiased dark:bg-gray-950 dark:text-white min-h-screen">
+      <body className="flex flex-col min-h-screen font-sans antialiased bg-cream text-foreground">
         <ThemeProviders>
           <AnalyticsWrapper />
-
-          <div className="w-full flex flex-col justify-between items-center font-sans">
-            <SearchProvider>
-              <main className="w-full flex flex-col items-center mb-auto">
-                {children}
-              </main>
-            </SearchProvider>
-          </div>
+          <SearchProvider>
+            <Header />
+            <main className="flex-1">
+              {children}
+            </main>
+            <Footer />
+          </SearchProvider>
         </ThemeProviders>
       </body>
     </html>

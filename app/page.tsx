@@ -1,10 +1,28 @@
+import {
+  HeroHome,
+  ServicesSection,
+  IndustriesSection,
+  TestimonialsSection,
+  WhyChooseUsSection,
+  FAQSection,
+  CTASection,
+} from '@/components/landing';
+
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center p-24">
-      <h1 className="text-4xl font-bold">Welcome</h1>
-      <p className="mt-4 text-muted-foreground">
-        Start building your application.
-      </p>
-    </main>
+    <>
+      <HeroHome />
+      <ServicesSection />
+      <WhyChooseUsSection />
+      <IndustriesSection />
+      <TestimonialsSection />
+      <FAQSection />
+      <CTASection
+        title="Ready to transform your HR?"
+        description="Take the first step toward building your dream team. Start with Congruity HR today and experience world-class HR support."
+        primaryCTA={{ text: 'Book a Demo', href: '/book-demo' }}
+        secondaryCTA={{ text: 'Contact Us', href: '/contact' }}
+      />
+    </>
   );
 }

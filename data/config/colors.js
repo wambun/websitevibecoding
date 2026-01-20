@@ -1,18 +1,18 @@
-/* Configure colors at https://shipixen.com/color-theme-explorer-shadcn */
+/* Congruity HR Color Theme - Based on HR-Pro Template */
 const colors = {
   primary: {
-    lighter: '#fde047',
-    light: '#facc15',
-    main: '#eab308',
-    dark: '#ca8a04',
-    darker: '#a16207',
+    lighter: '#4a8a84',
+    light: '#35625d',
+    main: '#1f514c',
+    dark: '#1a443f',
+    darker: '#143632',
   },
   secondary: {
-    lighter: '#6ee7b7',
-    light: '#34d399',
-    main: '#10b981',
-    dark: '#059669',
-    darker: '#047857',
+    lighter: '#fffff5',
+    light: '#fffffb',
+    main: '#f7f7f7',
+    dark: '#e9eaeb',
+    darker: '#d1d5db',
   },
 };
 
