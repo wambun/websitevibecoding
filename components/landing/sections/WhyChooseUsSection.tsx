@@ -46,8 +46,8 @@ export function WhyChooseUsSection() {
   return (
     <section className="section bg-cream relative overflow-hidden">
       {/* Background decorative elements */}
-      <div className="absolute -top-20 -left-20 w-64 h-64 bg-primary/5 rounded-full blur-3xl" />
-      <div className="absolute -bottom-20 -right-20 w-48 h-48 bg-teal-light/10 rounded-full blur-3xl" />
+      <div className="absolute -top-20 -left-20 w-64 h-64 bg-accent/10 rounded-full blur-3xl" />
+      <div className="absolute -bottom-20 -right-20 w-48 h-48 bg-primary/10 rounded-full blur-3xl" />
 
       <div className="container-main relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">

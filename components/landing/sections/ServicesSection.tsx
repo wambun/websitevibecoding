@@ -26,7 +26,7 @@ const services = [
     description:
       'Just need the basics? Our ASO model provides flexible HR outsourcing while you maintain control.',
     href: '/services/aso-services',
-    iconBg: 'bg-primary/15',
+    iconBg: 'bg-accent/10',
   },
   {
     icon: Briefcase,
@@ -34,7 +34,7 @@ const services = [
     description:
       'From recruiting to retirement, and everything in-between. Complete HR lifecycle management.',
     href: '/services/hr-solutions',
-    iconBg: 'bg-teal-light/15',
+    iconBg: 'bg-primary/15',
   },
   {
     icon: Heart,
@@ -42,7 +42,7 @@ const services = [
     description:
       'Comprehensive benefits packages that attract and retain top talent with healthcare and perks.',
     href: '/services/employee-benefits',
-    iconBg: 'bg-primary/10',
+    iconBg: 'bg-accent/10',
   },
   {
     icon: Shield,
@@ -50,7 +50,7 @@ const services = [
     description:
       'Navigate complex labor laws and regulations with confidence. Stay compliant, reduce risk.',
     href: '/services/compliance-risk',
-    iconBg: 'bg-primary/15',
+    iconBg: 'bg-primary/10',
   },
 ];
 

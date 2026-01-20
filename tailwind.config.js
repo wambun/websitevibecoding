@@ -66,19 +66,59 @@ module.exports = {
         display: ['var(--font-inter)', ...fontFamily.sans],
       },
       colors: {
-        // Brand colors
+        // Primary: Dark Blue from logo (main brand color)
         primary: {
-          50: '#e6f0ef',
-          100: '#b3d4d1',
-          200: '#80b8b3',
-          300: '#4d9c95',
-          400: '#1a8077',
-          500: customColors.primary.main, // #1f514c
+          50: '#E8EEF4',
+          100: '#C5D5E4',
+          200: '#9FBBD3',
+          300: '#79A1C2',
+          400: '#5387B1',
+          500: customColors.primary.main, // #0C3B6A
           600: customColors.primary.dark,
           700: customColors.primary.darker,
-          800: '#0d2927',
-          900: '#071514',
+          800: '#041424',
+          900: '#020A12',
           DEFAULT: customColors.primary.main,
+        },
+        // Accent: Cyan from logo (CTAs, links, highlights)
+        accent: {
+          50: '#E6F6FC',
+          100: '#B3E4F7',
+          200: '#80D2F2',
+          300: '#4DC0ED',
+          400: '#1AAEE8',
+          500: customColors.accent.main, // #0099DB
+          600: customColors.accent.dark,
+          700: customColors.accent.darker,
+          800: '#003D57',
+          900: '#001E2B',
+          DEFAULT: customColors.accent.main,
+        },
+        // Success: Green from logo (sparingly)
+        success: {
+          50: '#EEF7EE',
+          100: '#D4EBD3',
+          200: '#BADEB8',
+          300: '#9FD19D',
+          400: '#85C582',
+          500: customColors.success.main, // #5AAD55
+          600: customColors.success.dark,
+          700: customColors.success.darker,
+          800: '#234422',
+          900: '#112211',
+          DEFAULT: customColors.success.main,
+        },
+        // Neutral: Charcoal from logo text
+        charcoal: {
+          50: '#F3F4F4',
+          100: '#E1E3E4',
+          200: '#C3C7C9',
+          300: '#A5ABAE',
+          400: '#878F93',
+          500: customColors.neutral.main, // #42494D
+          600: customColors.neutral.dark,
+          700: customColors.neutral.darker,
+          DEFAULT: customColors.neutral.main,
         },
         secondary: {
           50: customColors.secondary.lighter,
@@ -89,35 +129,13 @@ module.exports = {
           500: '#9ca3af',
           DEFAULT: customColors.secondary.main,
         },
-        // HR-Pro specific colors
+        // Background colors
         cream: '#fffffb',
         'cream-dark': '#f7f7f7',
-        teal: {
-          DEFAULT: '#1f514c',
-          light: '#35625d',
-          dark: '#143632',
-        },
-        // Logo brand colors (the three interlocking circles)
-        'brand-blue': {
-          DEFAULT: customColors.brand.blue.main,
-          light: customColors.brand.blue.light,
-          dark: customColors.brand.blue.dark,
-        },
-        'brand-cyan': {
-          DEFAULT: customColors.brand.cyan.main,
-          light: customColors.brand.cyan.light,
-          dark: customColors.brand.cyan.dark,
-        },
-        'brand-green': {
-          DEFAULT: customColors.brand.green.main,
-          light: customColors.brand.green.light,
-          dark: customColors.brand.green.dark,
-        },
-        charcoal: customColors.brand.charcoal,
         // Shadcn UI tokens
         border: 'hsl(var(--border))',
         input: 'hsl(var(--input))',
-        ring: customColors.primary.main,
+        ring: customColors.accent.main,
         background: 'hsl(var(--background))',
         foreground: 'hsl(var(--foreground))',
         destructive: {
@@ -127,10 +145,6 @@ module.exports = {
         muted: {
           DEFAULT: 'hsl(var(--muted))',
           foreground: 'hsl(var(--muted-foreground))',
-        },
-        accent: {
-          DEFAULT: 'hsl(var(--accent))',
-          foreground: 'hsl(var(--accent-foreground))',
         },
         popover: {
           DEFAULT: 'hsl(var(--popover))',
@@ -151,7 +165,8 @@ module.exports = {
         'card': '0 12px 16px 0 rgba(10,13,18,.08), 0 4px 5px -2px rgba(10,13,18,.03)',
         'card-hover': '0 20px 25px -5px rgba(10,13,18,.1), 0 8px 10px -6px rgba(10,13,18,.1)',
         'soft': '0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -2px rgba(0, 0, 0, 0.05)',
-        'glow': '0 0 40px rgba(31, 81, 76, 0.15)',
+        'glow': '0 0 40px rgba(0, 153, 219, 0.2)',
+        'glow-primary': '0 0 40px rgba(12, 59, 106, 0.15)',
       },
       typography: ({ theme }) => ({
         DEFAULT: {
@@ -244,8 +259,8 @@ module.exports = {
           '50%': { opacity: '0.7' },
         },
         'glow-pulse': {
-          '0%, 100%': { boxShadow: '0 0 20px rgba(31, 81, 76, 0.1)' },
-          '50%': { boxShadow: '0 0 40px rgba(31, 81, 76, 0.2)' },
+          '0%, 100%': { boxShadow: '0 0 20px rgba(0, 153, 219, 0.1)' },
+          '50%': { boxShadow: '0 0 40px rgba(0, 153, 219, 0.25)' },
         },
         'fade-in': {
           '0%': { opacity: '0' },

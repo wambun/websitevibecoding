@@ -96,7 +96,7 @@ export function TeamSection() {
                     {member.title}
                   </p>
                   {member.credentials && (
-                    <p className="text-xs text-brand-cyan font-medium mt-1">
+                    <p className="text-xs text-accent font-medium mt-1">
                       {member.credentials}
                     </p>
                   )}
@@ -145,7 +145,7 @@ export function TeamSection() {
               <h4 className="font-medium text-foreground text-sm">{member.name}</h4>
               <p className="text-xs text-muted-foreground mt-1">{member.title}</p>
               {member.company && (
-                <p className="text-xs text-brand-cyan mt-0.5">{member.company}</p>
+                <p className="text-xs text-accent mt-0.5">{member.company}</p>
               )}
             </motion.div>
           ))}

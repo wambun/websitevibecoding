@@ -4,62 +4,66 @@
 
 @layer base {
   :root {
-    /* HR-Pro inspired color tokens */
-    --color-primary: #1f514c;
-    --color-primary-light: #35625d;
-    --color-primary-dark: #143632;
+    /* Logo-matched color tokens */
+    --color-primary: #0C3B6A;        /* Dark Blue from logo */
+    --color-primary-light: #1A5A9E;
+    --color-primary-dark: #082B4E;
+    --color-accent: #0099DB;         /* Cyan from logo */
+    --color-accent-light: #33ADEE;
+    --color-success: #5AAD55;        /* Green from logo (sparingly) */
+    --color-charcoal: #42494D;       /* Text color from logo */
     --color-cream: #fffffb;
     --color-cream-dark: #f7f7f7;
     --color-border: #e9eaeb;
-    --color-text-muted: #777272;
+    --color-text-muted: #6B7280;
 
     /* Shadows */
     --shadow-card: 0 12px 16px 0 rgba(10,13,18,.08), 0 4px 5px -2px rgba(10,13,18,.03);
     --shadow-card-hover: 0 20px 25px -5px rgba(10,13,18,.1), 0 8px 10px -6px rgba(10,13,18,.1);
 
-    /* Shadcn UI tokens */
+    /* Shadcn UI tokens - Blue primary theme */
     --background: 60 33% 99%;
-    --foreground: 180 15% 15%;
+    --foreground: 210 11% 15%;
     --card: 60 33% 99%;
-    --card-foreground: 180 15% 15%;
+    --card-foreground: 210 11% 15%;
     --popover: 60 33% 99%;
-    --popover-foreground: 180 15% 15%;
-    --primary: 173 45% 22%;
+    --popover-foreground: 210 11% 15%;
+    --primary: 209 80% 23%;          /* Dark Blue */
     --primary-foreground: 60 33% 99%;
     --secondary: 0 0% 97%;
-    --secondary-foreground: 180 15% 15%;
+    --secondary-foreground: 210 11% 15%;
     --muted: 0 0% 96%;
     --muted-foreground: 0 0% 45%;
-    --accent: 173 25% 92%;
-    --accent-foreground: 173 45% 22%;
+    --accent: 199 100% 43%;          /* Cyan */
+    --accent-foreground: 60 33% 99%;
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 98%;
     --border: 220 13% 91%;
     --input: 220 13% 91%;
-    --ring: 173 45% 22%;
+    --ring: 199 100% 43%;            /* Cyan for focus rings */
     --radius: 0.5rem;
   }
 
   .dark {
-    --background: 180 15% 8%;
+    --background: 210 15% 8%;
     --foreground: 60 9% 98%;
-    --card: 180 15% 10%;
+    --card: 210 15% 10%;
     --card-foreground: 60 9% 98%;
-    --popover: 180 15% 10%;
+    --popover: 210 15% 10%;
     --popover-foreground: 60 9% 98%;
-    --primary: 173 35% 45%;
-    --primary-foreground: 180 15% 8%;
-    --secondary: 180 10% 15%;
+    --primary: 199 100% 50%;
+    --primary-foreground: 210 15% 8%;
+    --secondary: 210 10% 15%;
     --secondary-foreground: 60 9% 98%;
-    --muted: 180 10% 15%;
+    --muted: 210 10% 15%;
     --muted-foreground: 0 0% 64%;
-    --accent: 173 25% 20%;
+    --accent: 209 80% 35%;
     --accent-foreground: 60 9% 98%;
     --destructive: 0 62% 30%;
     --destructive-foreground: 0 86% 97%;
-    --border: 180 10% 20%;
-    --input: 180 10% 20%;
-    --ring: 173 35% 45%;
+    --border: 210 10% 20%;
+    --input: 210 10% 20%;
+    --ring: 199 100% 50%;
   }
 
   * {
@@ -159,15 +163,15 @@
     @apply bg-white rounded-card shadow-card;
     @apply border border-primary/5;
     @apply transition-all duration-300 ease-out;
-    background: linear-gradient(135deg, white 0%, rgba(255,255,255,0.97) 50%, rgba(31, 81, 76, 0.02) 100%);
+    background: linear-gradient(135deg, white 0%, rgba(255,255,255,0.97) 50%, rgba(12, 59, 106, 0.02) 100%);
   }
 
   .card-premium:hover {
-    @apply -translate-y-1 border-primary/10;
+    @apply -translate-y-1 border-accent/20;
     box-shadow:
       0 20px 25px -5px rgba(10,13,18,.1),
       0 8px 10px -6px rgba(10,13,18,.1),
-      0 0 40px rgba(31, 81, 76, 0.08);
+      0 0 40px rgba(0, 153, 219, 0.1);
   }
 
   /* HR-Pro Badge/Pill Styles */
@@ -315,46 +319,46 @@
     border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
   }
 
-  /* Text gradient */
+  /* Text gradient - uses cyan accent for vibrant effect */
   .text-gradient-primary {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-teal-light;
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary via-accent to-primary;
   }
 
-  /* Hover glow effect */
+  /* Hover glow effect - cyan accent glow */
   .hover-glow {
     @apply transition-shadow duration-300;
   }
 
   .hover-glow:hover {
-    box-shadow: 0 0 40px rgba(31, 81, 76, 0.15);
+    box-shadow: 0 0 40px rgba(0, 153, 219, 0.2);
   }
 
   /* Glassmorphism utilities */
   .glass {
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.15);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.2);
   }
 
   .glass-dark {
-    background: rgba(31, 81, 76, 0.1);
+    background: rgba(12, 59, 106, 0.1);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
-    border: 1px solid rgba(31, 81, 76, 0.1);
+    border: 1px solid rgba(12, 59, 106, 0.1);
   }
 
   /* Premium input styling */
   .input-premium {
     @apply w-full px-4 py-3 rounded-xl border-2 border-border;
     @apply transition-all duration-300 ease-out;
-    @apply focus:border-primary focus:ring-4 focus:ring-primary/10;
+    @apply focus:border-accent focus:ring-4 focus:ring-accent/10;
     @apply focus:outline-none;
   }
 
   .input-premium:focus {
     transform: translateY(-1px);
-    box-shadow: 0 0 20px rgba(31, 81, 76, 0.1);
+    box-shadow: 0 0 20px rgba(0, 153, 219, 0.15);
   }
 
   /* Icon container with glow on hover */
@@ -363,7 +367,7 @@
   }
 
   .icon-glow:hover {
-    box-shadow: 0 0 30px rgba(31, 81, 76, 0.2);
+    box-shadow: 0 0 30px rgba(0, 153, 219, 0.25);
   }
 
   /* Focus ring */
@@ -384,9 +388,9 @@
     }
   }
 
-  /* Selection colors */
+  /* Selection colors - cyan accent */
   ::selection {
-    background-color: rgba(31, 81, 76, 0.2);
+    background-color: rgba(0, 153, 219, 0.2);
     color: var(--color-primary-dark);
   }
 

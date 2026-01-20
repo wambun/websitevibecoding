@@ -27,14 +27,14 @@ export function HeroHome() {
       <div className="absolute inset-0 -z-10">
         <motion.div
           style={{ y: blob1Y, opacity: blob1Opacity }}
-          className="absolute top-0 right-0 w-[600px] h-[600px] bg-primary/5 rounded-full blur-3xl transform translate-x-1/2 -translate-y-1/2"
+          className="absolute top-0 right-0 w-[600px] h-[600px] bg-accent/10 rounded-full blur-3xl transform translate-x-1/2 -translate-y-1/2"
         />
         <motion.div
           style={{ y: blob2Y }}
-          className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-teal-light/10 rounded-full blur-3xl transform -translate-x-1/2 translate-y-1/2"
+          className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-primary/10 rounded-full blur-3xl transform -translate-x-1/2 translate-y-1/2"
         />
         {/* Additional subtle geometric accent */}
-        <div className="absolute top-1/4 left-1/4 w-32 h-32 border border-primary/5 rounded-full hidden lg:block" />
+        <div className="absolute top-1/4 left-1/4 w-32 h-32 border border-accent/10 rounded-full hidden lg:block" />
       </div>
 
       <div className="container-main py-16 lg:py-24">
@@ -51,12 +51,12 @@ export function HeroHome() {
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ type: 'spring', stiffness: 200, damping: 20, delay: 0.1 }}
-              className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 rounded-full text-sm font-medium text-primary mb-6 relative overflow-hidden"
+              className="inline-flex items-center gap-2 px-4 py-2 bg-accent/10 rounded-full text-sm font-medium text-primary mb-6 relative overflow-hidden"
             >
               {/* Shimmer overlay */}
-              <span className="absolute inset-0 -translate-x-full animate-shimmer bg-gradient-to-r from-transparent via-white/30 to-transparent" />
+              <span className="absolute inset-0 -translate-x-full animate-shimmer bg-gradient-to-r from-transparent via-accent/20 to-transparent" />
               <span className="relative flex items-center gap-2">
-                <span className="w-2 h-2 rounded-full bg-primary animate-pulse-soft" />
+                <span className="w-2 h-2 rounded-full bg-accent animate-pulse-soft" />
                 Trusted by 500+ companies nationwide
               </span>
             </motion.div>
@@ -83,7 +83,7 @@ export function HeroHome() {
                     stroke="currentColor"
                     strokeWidth="3"
                     strokeLinecap="round"
-                    className="text-primary/40"
+                    className="text-accent/60"
                   />
                 </motion.svg>
               </span>
@@ -108,7 +108,7 @@ export function HeroHome() {
                   transition={{ duration: 0.4, delay: 0.3 + index * 0.1 }}
                   className="flex items-center gap-2 text-sm text-foreground/80"
                 >
-                  <CheckCircle className="w-5 h-5 text-primary flex-shrink-0" />
+                  <CheckCircle className="w-5 h-5 text-accent flex-shrink-0" />
                   {feature}
                 </motion.div>
               ))}
@@ -190,7 +190,7 @@ export function HeroHome() {
                 className="absolute -left-4 lg:-left-8 bottom-24 bg-white rounded-2xl shadow-card p-4 max-w-[280px] hidden lg:block animate-float hover-glow"
               >
                 <div className="flex items-start gap-3">
-                  <div className="w-10 h-10 rounded-full bg-brand-cyan/20 flex items-center justify-center flex-shrink-0 text-sm font-bold text-brand-cyan">
+                  <div className="w-10 h-10 rounded-full bg-accent/15 flex items-center justify-center flex-shrink-0 text-sm font-bold text-accent">
                     KJ
                   </div>
                   <div>
@@ -210,8 +210,8 @@ export function HeroHome() {
                 className="absolute -right-4 top-8 bg-white rounded-2xl shadow-card px-4 py-3 hidden lg:block animate-float-slow hover-glow"
               >
                 <div className="flex items-center gap-2">
-                  <div className="w-8 h-8 rounded-full bg-brand-green/20 flex items-center justify-center">
-                    <CheckCircle className="w-4 h-4 text-brand-green" />
+                  <div className="w-8 h-8 rounded-full bg-success/15 flex items-center justify-center">
+                    <CheckCircle className="w-4 h-4 text-success" />
                   </div>
                   <div>
                     <div className="text-xs text-muted-foreground">iSolved Certified</div>

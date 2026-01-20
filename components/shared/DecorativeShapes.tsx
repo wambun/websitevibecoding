@@ -17,17 +17,17 @@ export function DecorativeShapes({ variant = 'section', className = '' }: Decora
       <div className={`absolute inset-0 overflow-hidden -z-10 ${className}`}>
         <motion.div
           style={{ y: y1 }}
-          className="absolute top-20 right-10 w-72 h-72 bg-primary/5 rounded-full blur-3xl"
+          className="absolute top-20 right-10 w-72 h-72 bg-accent/10 rounded-full blur-3xl"
         />
         <motion.div
           style={{ y: y2 }}
-          className="absolute bottom-20 left-10 w-64 h-64 bg-teal-light/10 rounded-full blur-3xl"
+          className="absolute bottom-20 left-10 w-64 h-64 bg-primary/10 rounded-full blur-3xl"
         />
         {/* Geometric accents */}
-        <svg className="absolute top-1/4 right-1/4 w-24 h-24 text-primary/5 hidden lg:block" viewBox="0 0 100 100">
+        <svg className="absolute top-1/4 right-1/4 w-24 h-24 text-accent/10 hidden lg:block" viewBox="0 0 100 100">
           <circle cx="50" cy="50" r="40" fill="none" stroke="currentColor" strokeWidth="2" />
         </svg>
-        <div className="absolute bottom-1/4 left-1/4 w-16 h-16 border border-primary/5 rounded-full hidden lg:block" />
+        <div className="absolute bottom-1/4 left-1/4 w-16 h-16 border border-accent/10 rounded-full hidden lg:block" />
       </div>
     );
   }
@@ -52,8 +52,8 @@ export function DecorativeShapes({ variant = 'section', className = '' }: Decora
   // Default section variant
   return (
     <div className={`absolute inset-0 overflow-hidden -z-10 ${className}`}>
-      <div className="absolute -top-10 -right-10 w-40 h-40 bg-primary/5 rounded-full blur-2xl" />
-      <div className="absolute -bottom-10 -left-10 w-32 h-32 bg-teal-light/10 rounded-full blur-2xl" />
+      <div className="absolute -top-10 -right-10 w-40 h-40 bg-accent/10 rounded-full blur-2xl" />
+      <div className="absolute -bottom-10 -left-10 w-32 h-32 bg-primary/10 rounded-full blur-2xl" />
     </div>
   );
 }

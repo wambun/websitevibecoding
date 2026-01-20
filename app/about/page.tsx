@@ -211,8 +211,8 @@ export default function AboutPage() {
               {/* Floating card */}
               <div className="absolute -bottom-6 -left-4 lg:-left-6 bg-white rounded-2xl shadow-card p-4 lg:p-6">
                 <div className="flex items-center gap-3">
-                  <div className="w-12 h-12 rounded-xl bg-brand-green/20 flex items-center justify-center">
-                    <Award className="w-6 h-6 text-brand-green" />
+                  <div className="w-12 h-12 rounded-xl bg-success/15 flex items-center justify-center">
+                    <Award className="w-6 h-6 text-success" />
                   </div>
                   <div>
                     <div className="font-semibold text-foreground">iSolved Partner</div>
