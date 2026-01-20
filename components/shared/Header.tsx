@@ -30,10 +30,11 @@ export function Header() {
   return (
     <header
       className={cn(
-        'fixed top-0 left-0 right-0 z-50 transition-all duration-300',
+        'fixed top-0 left-0 right-0 z-50',
+        'transition-all duration-500 ease-out',
         isScrolled
-          ? 'bg-cream/95 backdrop-blur-md shadow-soft'
-          : 'bg-transparent'
+          ? 'bg-cream/95 backdrop-blur-md shadow-soft py-2'
+          : 'bg-transparent py-4'
       )}
     >
       <div className="container-main">
@@ -83,13 +84,13 @@ export function Header() {
                 <AnimatePresence>
                   {link.children && activeDropdown === link.href && (
                     <motion.div
-                      initial={{ opacity: 0, y: 10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: 10 }}
-                      transition={{ duration: 0.2 }}
+                      initial={{ opacity: 0, y: 10, scale: 0.95 }}
+                      animate={{ opacity: 1, y: 0, scale: 1 }}
+                      exit={{ opacity: 0, y: 10, scale: 0.95 }}
+                      transition={{ type: 'spring', stiffness: 300, damping: 25 }}
                       className="absolute top-full left-0 pt-2 w-72"
                     >
-                      <div className="bg-white rounded-2xl shadow-card p-2 border border-border">
+                      <div className="bg-white rounded-2xl shadow-card p-2 border border-border hover-glow">
                         {link.children.map((child) => (
                           <Link
                             key={child.href}

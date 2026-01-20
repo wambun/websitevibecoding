@@ -44,19 +44,23 @@ const features = [
 
 export function WhyChooseUsSection() {
   return (
-    <section className="section bg-cream">
-      <div className="container-main">
+    <section className="section bg-cream relative overflow-hidden">
+      {/* Background decorative elements */}
+      <div className="absolute -top-20 -left-20 w-64 h-64 bg-primary/5 rounded-full blur-3xl" />
+      <div className="absolute -bottom-20 -right-20 w-48 h-48 bg-teal-light/10 rounded-full blur-3xl" />
+
+      <div className="container-main relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Left Column - Content */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
+            transition={{ type: 'spring', stiffness: 100, damping: 20 }}
           >
             <span className="badge badge-primary mb-4">Why Congruity</span>
             <h2 className="text-h2 text-primary mb-6">
-              What Makes Us Different
+              What Makes Us <span className="text-gradient-primary">Different</span>
             </h2>
             <p className="text-lg text-muted-foreground mb-8">
               When it comes to selecting a PEO, ASO, or HR outsourcing provider, we know
@@ -71,12 +75,16 @@ export function WhyChooseUsSection() {
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.4, delay: 0.1 * index }}
-                  className="flex gap-4"
+                  transition={{ type: 'spring', stiffness: 100, damping: 20, delay: 0.1 * index }}
+                  className="flex gap-4 group"
                 >
-                  <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0">
+                  <motion.div
+                    whileHover={{ scale: 1.1 }}
+                    transition={{ type: 'spring', stiffness: 300, damping: 15 }}
+                    className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0 icon-glow transition-colors group-hover:bg-primary/15"
+                  >
                     <feature.icon className="w-6 h-6 text-primary" />
-                  </div>
+                  </motion.div>
                   <div>
                     <h3 className="font-semibold text-foreground mb-1">
                       {feature.title}

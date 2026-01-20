@@ -1,8 +1,9 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import Link from 'next/link';
 import { ArrowRight, Play, CheckCircle } from 'lucide-react';
+import { useRef } from 'react';
 
 const features = [
   'Full-service PEO & ASO solutions',
@@ -11,12 +12,28 @@ const features = [
 ];
 
 export function HeroHome() {
+  const containerRef = useRef<HTMLElement>(null);
+  const { scrollY } = useScroll();
+
+  // Parallax transforms for decorative elements
+  const blob1Y = useTransform(scrollY, [0, 500], [0, 150]);
+  const blob2Y = useTransform(scrollY, [0, 500], [0, -100]);
+  const blob1Opacity = useTransform(scrollY, [0, 400], [1, 0.3]);
+
   return (
-    <section className="relative min-h-[90vh] flex items-center pt-20 overflow-hidden">
-      {/* Background decorative elements */}
+    <section ref={containerRef} className="relative min-h-[90vh] flex items-center pt-20 overflow-hidden">
+      {/* Background decorative elements with parallax */}
       <div className="absolute inset-0 -z-10">
-        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-primary/5 rounded-full blur-3xl transform translate-x-1/2 -translate-y-1/2" />
-        <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-teal-light/10 rounded-full blur-3xl transform -translate-x-1/2 translate-y-1/2" />
+        <motion.div
+          style={{ y: blob1Y, opacity: blob1Opacity }}
+          className="absolute top-0 right-0 w-[600px] h-[600px] bg-primary/5 rounded-full blur-3xl transform translate-x-1/2 -translate-y-1/2"
+        />
+        <motion.div
+          style={{ y: blob2Y }}
+          className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-teal-light/10 rounded-full blur-3xl transform -translate-x-1/2 translate-y-1/2"
+        />
+        {/* Additional subtle geometric accent */}
+        <div className="absolute top-1/4 left-1/4 w-32 h-32 border border-primary/5 rounded-full hidden lg:block" />
       </div>
 
       <div className="container-main py-16 lg:py-24">
@@ -28,36 +45,46 @@ export function HeroHome() {
             transition={{ duration: 0.6 }}
             className="text-center lg:text-left"
           >
-            {/* Badge */}
+            {/* Badge with shimmer effect */}
             <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.4, delay: 0.1 }}
-              className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 rounded-full text-sm font-medium text-primary mb-6"
+              transition={{ type: 'spring', stiffness: 200, damping: 20, delay: 0.1 }}
+              className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 rounded-full text-sm font-medium text-primary mb-6 relative overflow-hidden"
             >
-              <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-              Trusted by 500+ companies nationwide
+              {/* Shimmer overlay */}
+              <span className="absolute inset-0 -translate-x-full animate-shimmer bg-gradient-to-r from-transparent via-white/30 to-transparent" />
+              <span className="relative flex items-center gap-2">
+                <span className="w-2 h-2 rounded-full bg-primary animate-pulse-soft" />
+                Trusted by 500+ companies nationwide
+              </span>
             </motion.div>
 
-            {/* Headline */}
+            {/* Headline with gradient text */}
             <h1 className="text-4xl sm:text-5xl lg:text-display font-semibold tracking-headline text-primary mb-6 leading-tight">
               You focus on{' '}
-              <span className="relative">
+              <span className="relative text-gradient-primary">
                 your business
-                <svg
+                <motion.svg
+                  initial={{ pathLength: 0, opacity: 0 }}
+                  animate={{ pathLength: 1, opacity: 1 }}
+                  transition={{ duration: 1, delay: 0.5, ease: 'easeOut' }}
                   className="absolute -bottom-2 left-0 w-full"
                   viewBox="0 0 300 12"
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
                 >
-                  <path
+                  <motion.path
+                    initial={{ pathLength: 0 }}
+                    animate={{ pathLength: 1 }}
+                    transition={{ duration: 1, delay: 0.5, ease: 'easeOut' }}
                     d="M2 10C50 4 150 2 298 10"
                     stroke="currentColor"
                     strokeWidth="3"
                     strokeLinecap="round"
-                    className="text-primary/30"
+                    className="text-primary/40"
                   />
-                </svg>
+                </motion.svg>
               </span>
               .
               <br />
@@ -157,12 +184,12 @@ export function HeroHome() {
                 </div>
               </div>
 
-              {/* Floating badge */}
+              {/* Floating badge with float animation */}
               <motion.div
                 initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.5, delay: 0.6 }}
-                className="absolute -right-4 top-8 bg-white rounded-2xl shadow-card px-4 py-3 hidden lg:block"
+                transition={{ type: 'spring', stiffness: 100, damping: 20, delay: 0.6 }}
+                className="absolute -right-4 top-8 bg-white rounded-2xl shadow-card px-4 py-3 hidden lg:block animate-float-slow hover-glow"
               >
                 <div className="flex items-center gap-2">
                   <div className="w-8 h-8 rounded-full bg-green-100 flex items-center justify-center">

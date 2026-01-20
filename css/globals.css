@@ -102,21 +102,39 @@
 }
 
 @layer components {
-  /* HR-Pro Button Styles */
+  /* HR-Pro Button Styles - Premium Enhanced */
   .btn {
-    @apply inline-flex items-center justify-center gap-2 rounded-button px-6 py-3 text-sm font-medium transition-all duration-300;
+    @apply inline-flex items-center justify-center gap-2 rounded-button px-6 py-3 text-sm font-medium;
+    @apply transition-all duration-300 ease-out;
+    @apply relative overflow-hidden;
+    @apply hover:scale-[1.02] active:scale-[0.98];
   }
 
   .btn-primary {
-    @apply bg-primary text-white hover:bg-primary-600 shadow-sm hover:shadow-md;
+    @apply bg-primary text-white shadow-sm;
+    @apply hover:shadow-lg hover:shadow-primary/20;
+  }
+
+  /* Shimmer effect for primary buttons */
+  .btn-primary::before {
+    content: '';
+    @apply absolute inset-0 -translate-x-full;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: transform 0.6s ease;
+  }
+
+  .btn-primary:hover::before {
+    @apply translate-x-full;
   }
 
   .btn-secondary {
-    @apply bg-cream text-primary border border-primary/20 hover:bg-primary/5;
+    @apply bg-cream text-primary border border-primary/20;
+    @apply hover:bg-primary/5 hover:border-primary/30;
   }
 
   .btn-outline {
-    @apply bg-transparent text-primary border-2 border-primary hover:bg-primary hover:text-white;
+    @apply bg-transparent text-primary border-2 border-primary;
+    @apply hover:bg-primary hover:text-white;
   }
 
   .btn-ghost {
@@ -134,6 +152,22 @@
 
   .card-interactive {
     @apply card card-hover cursor-pointer;
+  }
+
+  /* Premium Card - with subtle gradient, border, and glow */
+  .card-premium {
+    @apply bg-white rounded-card shadow-card;
+    @apply border border-primary/5;
+    @apply transition-all duration-300 ease-out;
+    background: linear-gradient(135deg, white 0%, rgba(255,255,255,0.97) 50%, rgba(31, 81, 76, 0.02) 100%);
+  }
+
+  .card-premium:hover {
+    @apply -translate-y-1 border-primary/10;
+    box-shadow:
+      0 20px 25px -5px rgba(10,13,18,.1),
+      0 8px 10px -6px rgba(10,13,18,.1),
+      0 0 40px rgba(31, 81, 76, 0.08);
   }
 
   /* HR-Pro Badge/Pill Styles */
@@ -214,6 +248,21 @@
     @apply text-muted-foreground hover:text-foreground transition-colors;
   }
 
+  /* Premium link with animated underline */
+  .link-underline {
+    @apply relative text-primary transition-colors;
+  }
+
+  .link-underline::after {
+    content: '';
+    @apply absolute bottom-0 left-0 w-0 h-0.5 bg-primary;
+    transition: width 0.3s cubic-bezier(0.25, 0.1, 0.25, 1.0);
+  }
+
+  .link-underline:hover::after {
+    @apply w-full;
+  }
+
   /* Navigation link */
   .nav-link {
     @apply text-foreground/80 hover:text-primary transition-colors font-medium;
@@ -269,6 +318,52 @@
   /* Text gradient */
   .text-gradient-primary {
     @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-teal-light;
+  }
+
+  /* Hover glow effect */
+  .hover-glow {
+    @apply transition-shadow duration-300;
+  }
+
+  .hover-glow:hover {
+    box-shadow: 0 0 40px rgba(31, 81, 76, 0.15);
+  }
+
+  /* Glassmorphism utilities */
+  .glass {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+  }
+
+  .glass-dark {
+    background: rgba(31, 81, 76, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(31, 81, 76, 0.1);
+  }
+
+  /* Premium input styling */
+  .input-premium {
+    @apply w-full px-4 py-3 rounded-xl border-2 border-border;
+    @apply transition-all duration-300 ease-out;
+    @apply focus:border-primary focus:ring-4 focus:ring-primary/10;
+    @apply focus:outline-none;
+  }
+
+  .input-premium:focus {
+    transform: translateY(-1px);
+    box-shadow: 0 0 20px rgba(31, 81, 76, 0.1);
+  }
+
+  /* Icon container with glow on hover */
+  .icon-glow {
+    @apply transition-all duration-300;
+  }
+
+  .icon-glow:hover {
+    box-shadow: 0 0 30px rgba(31, 81, 76, 0.2);
   }
 
   /* Focus ring */

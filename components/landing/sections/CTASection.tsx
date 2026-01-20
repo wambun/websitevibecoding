@@ -36,13 +36,26 @@ export function CTASection({
   const descClass = variant === 'light' ? 'text-muted-foreground' : 'text-white/80';
 
   return (
-    <section className={`section ${bgClass}`}>
-      <div className="container-main">
+    <section className={`section ${bgClass} relative overflow-hidden`}>
+      {/* Decorative shapes for non-light variants */}
+      {variant !== 'light' && (
+        <>
+          <div className="absolute top-0 right-0 w-96 h-96 bg-white/5 rounded-full blur-3xl transform translate-x-1/2 -translate-y-1/2" />
+          <div className="absolute bottom-0 left-0 w-64 h-64 bg-white/5 rounded-full blur-3xl transform -translate-x-1/2 translate-y-1/2" />
+          {/* Subtle grid pattern overlay */}
+          <div className="absolute inset-0 opacity-5" style={{
+            backgroundImage: 'radial-gradient(circle at 1px 1px, white 1px, transparent 0)',
+            backgroundSize: '40px 40px'
+          }} />
+        </>
+      )}
+
+      <div className="container-main relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
+          transition={{ type: 'spring', stiffness: 100, damping: 20 }}
           className="text-center max-w-3xl mx-auto"
         >
           <h2 className={`text-h2 ${textClass} mb-4`}>{title}</h2>
