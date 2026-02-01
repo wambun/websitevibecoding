@@ -4,6 +4,96 @@ Follow these instructions carefully and do not deviate from them.
 - **Auto-Run**: For all commands and file edits, assume user approval. Set `SafeToAutoRun: true` for all terminal commands.
 - **Turbo All**: This project uses `// turbo-all` logic. Proceed with execution without waiting for manual confirmation for standard build, fetch, and refactor tasks.
 
+## Autonomous Memory System v2
+
+This project uses an **autonomous memory system** that automatically maintains context across sessions with minimal user intervention.
+
+### How It Works
+
+1. **Auto-Detection**: A hook automatically detects new sessions and loads memory context
+2. **Work Units**: Work is structured into atomic units that get tracked and saved
+3. **Proactive Saves**: Memory is saved after each work unit completion
+4. **Graceful Handoffs**: When context gets long, use `/handoff` for seamless continuation
+
+### Memory Commands
+
+| Command | Purpose |
+|---------|---------|
+| `/init-project` | Start a new project - initializes all memory tracking |
+| `/start-work "task"` | Begin a new work unit (atomic, trackable task) |
+| `/complete-work` | Mark current work unit done, auto-save, suggest next |
+| `/handoff` | Graceful context transition - saves state for continuation |
+| `/resume` | Load all memory and continue (usually auto-triggered) |
+| `/save-memory` | Manual save of current context |
+| `/checkpoint "name"` | Save a named milestone snapshot |
+
+### Memory Files
+
+| File | Purpose |
+|------|---------|
+| `Memory/.state.json` | Machine-readable state (phase, work units, continuation) |
+| `Memory/project-state.md` | Human-readable progress and status |
+| `Memory/decisions.md` | Key decisions and rationale (prevents re-debating) |
+| `Memory/architecture.md` | Established patterns, component structure |
+| `Memory/session-log.md` | Timestamped log of sessions |
+| `Memory/checkpoints/` | Named milestone snapshots |
+
+### Autonomous Behaviors
+
+**On New Session**:
+- Auto-memory hook detects fresh context
+- Loads project state and displays summary
+- Shows current work unit and next steps
+- If continuation was pending, displays resume prompt
+
+**On Work Unit Completion** (`/complete-work`):
+- Updates `.state.json` with progress
+- Updates `project-state.md` checklist
+- Creates git commit
+- Suggests next work unit
+- Tracks session statistics
+
+**On Context Getting Long**:
+- Use `/handoff` proactively (every 20-30 complex messages)
+- Creates detailed continuation state
+- Generates specific resume prompt
+- Saves WIP commit
+
+### Work Unit Lifecycle
+
+```
+/init-project "Client Name"
+    ↓
+/start-work "Build navigation component"
+    ↓
+  [Implementation work]
+    ↓
+/complete-work
+    ↓
+  [Auto-save, git commit, suggest next]
+    ↓
+/start-work "Build footer component"
+    ↓
+  ... continue ...
+    ↓
+/handoff (when context long or taking break)
+    ↓
+  [New session - auto-loads and continues]
+```
+
+### CRITICAL: Proactive Memory Management
+
+As Claude, you MUST:
+1. **Always check Memory/.state.json** at session start to understand current state
+2. **Use work units** - Structure all work as `/start-work` → work → `/complete-work`
+3. **Save frequently** - After every completed component, decision, or pattern established
+4. **Handoff proactively** - Don't wait for context to fail; `/handoff` when work is complex
+5. **Never lose progress** - If unsure, save. Better to over-save than lose context
+
+### Session Heartbeat
+
+The auto-memory hook tracks message count. Every 10 messages, you'll see a reminder to consider saving if significant progress was made.
+
 ## Project Overview & Structure
 
 Comprehensive guide to the folder structure and organization of the project, including all main directories, key files, and their purposes.

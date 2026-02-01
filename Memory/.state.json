@@ -1,0 +1,35 @@
+{
+  "project": {
+    "name": "",
+    "client": "",
+    "oldSiteUrl": "",
+    "newDesignUrl": "",
+    "startedAt": "",
+    "phase": "not_started"
+  },
+  "session": {
+    "id": "",
+    "startedAt": "",
+    "lastActivity": "",
+    "messageCount": 0,
+    "workUnitsCompleted": 0
+  },
+  "progress": {
+    "currentWorkUnit": null,
+    "completedUnits": [],
+    "pendingUnits": [],
+    "blockers": []
+  },
+  "continuation": {
+    "needed": false,
+    "reason": "",
+    "resumePrompt": "",
+    "savedAt": ""
+  },
+  "meta": {
+    "version": "2.0",
+    "lastSave": "",
+    "totalSessions": 0,
+    "totalWorkUnits": 0
+  }
+}

@@ -51,3 +51,6 @@ client/
 # Playwright
 playwright-report/
 test-results/
+
+# Memory system - session marker (ephemeral)
+Memory/.current-session

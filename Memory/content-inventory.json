@@ -1,0 +1,36 @@
+{
+  "old": {
+    "site": "",
+    "discoveredAt": "",
+    "extractionMethod": "",
+    "totalPages": 0,
+    "extractedPages": 0,
+    "failedPages": 0,
+    "pages": [],
+    "assets": {
+      "images": [],
+      "documents": []
+    },
+    "navigation": [],
+    "status": "pending"
+  },
+  "new": {
+    "site": "",
+    "discoveredAt": "",
+    "extractionMethod": "",
+    "screenshots": [],
+    "designTokens": {
+      "colors": {},
+      "typography": {},
+      "spacing": {},
+      "animations": []
+    },
+    "components": [],
+    "status": "pending"
+  },
+  "mapping": {
+    "complete": false,
+    "pageMapping": [],
+    "contentMapping": []
+  }
+}

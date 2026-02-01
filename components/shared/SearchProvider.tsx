@@ -1,20 +1,22 @@
 'use client';
 
+import { SearchProvider as PlinySearchProvider } from '@shipixen/pliny/search';
 import { siteConfig } from '@/data/config/site.settings';
+import { useRouter } from 'next/navigation';
 
 export const SearchProvider = ({ children }: { children: React.ReactNode }) => {
-  // Search is disabled for now
-  if (!siteConfig.search || siteConfig.search === true) {
-    return <>{children}</>;
-  }
+    const router = useRouter();
+    const searchConfig = siteConfig.search;
 
-  // When search is enabled with proper config, we can use PlinySearchProvider
-  // import { SearchProvider as PlinySearchProvider } from '@shipixen/pliny/search';
-  // return (
-  //   <PlinySearchProvider searchConfig={siteConfig.search}>
-  //     {children}
-  //   </PlinySearchProvider>
-  // );
+    if (!searchConfig) {
+        return <>{children}</>;
+    }
 
-  return <>{children}</>;
+    return (
+        <PlinySearchProvider
+            searchConfig={searchConfig}
+        >
+            {children}
+        </PlinySearchProvider>
+    );
 };

@@ -1,211 +1,170 @@
-import { Variants, Transition } from 'framer-motion';
+import { Variants } from 'framer-motion';
 
-// Custom cubic-bezier easing functions for premium feel
-export const easings = {
-  // Apple-style smooth easing
-  smooth: [0.25, 0.1, 0.25, 1.0] as const,
-  // Aggressive start, gentle end
-  emphasis: [0.6, 0.05, 0.01, 0.9] as const,
-  // Quick start, gradual slowdown
-  decelerate: [0, 0, 0.2, 1] as const,
-  // Slow start, quick end
-  accelerate: [0.4, 0, 1, 1] as const,
-  // Bouncy, playful
-  bounce: [0.68, -0.55, 0.265, 1.55] as const,
-};
-
-// Framer Motion spring configurations
-export const springs = {
-  // Snappy, responsive - for buttons, icons
-  snappy: { type: 'spring', stiffness: 400, damping: 30 } as Transition,
-  // Gentle, elegant - for cards, sections
-  gentle: { type: 'spring', stiffness: 120, damping: 20 } as Transition,
-  // Bouncy for playful elements
-  bouncy: { type: 'spring', stiffness: 300, damping: 15 } as Transition,
-  // Very smooth for larger movements
-  smooth: { type: 'spring', stiffness: 100, damping: 25 } as Transition,
-  // Quick for micro-interactions
-  quick: { type: 'spring', stiffness: 500, damping: 35 } as Transition,
-};
-
-// Stagger container for grid animations
+// Stagger container for child animations
 export const staggerContainer: Variants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.08,
+      staggerChildren: 0.1,
       delayChildren: 0.1,
     },
   },
 };
 
-// Enhanced item variants with spring physics
-export const staggerItem: Variants = {
-  hidden: {
-    opacity: 0,
-    y: 30,
-    scale: 0.95
-  },
-  visible: {
-    opacity: 1,
-    y: 0,
-    scale: 1,
-    transition: springs.gentle,
-  },
-};
-
-// Fade up animation for sections
+// Fade up animation (default)
 export const fadeUp: Variants = {
-  hidden: {
-    opacity: 0,
-    y: 40
-  },
+  hidden: { opacity: 0, y: 30 },
   visible: {
     opacity: 1,
     y: 0,
     transition: {
       duration: 0.6,
-      ease: easings.smooth,
+      ease: [0.22, 1, 0.36, 1],
     },
   },
 };
 
-// Fade in animation
-export const fadeIn: Variants = {
-  hidden: { opacity: 0 },
+// Fade in from left
+export const fadeLeft: Variants = {
+  hidden: { opacity: 0, x: -40 },
   visible: {
     opacity: 1,
+    x: 0,
     transition: {
-      duration: 0.5,
-      ease: easings.smooth,
+      duration: 0.6,
+      ease: [0.22, 1, 0.36, 1],
     },
   },
 };
 
-// Scale up animation for cards
-export const scaleUp: Variants = {
-  hidden: {
-    opacity: 0,
-    scale: 0.9
+// Fade in from right
+export const fadeRight: Variants = {
+  hidden: { opacity: 0, x: 40 },
+  visible: {
+    opacity: 1,
+    x: 0,
+    transition: {
+      duration: 0.6,
+      ease: [0.22, 1, 0.36, 1],
+    },
   },
+};
+
+// Scale up animation
+export const scaleUp: Variants = {
+  hidden: { opacity: 0, scale: 0.9 },
   visible: {
     opacity: 1,
     scale: 1,
-    transition: springs.gentle,
+    transition: {
+      duration: 0.5,
+      ease: [0.22, 1, 0.36, 1],
+    },
   },
 };
 
-// Slide in from left
-export const slideInLeft: Variants = {
-  hidden: {
-    opacity: 0,
-    x: -50
-  },
+// Blur in animation
+export const blurIn: Variants = {
+  hidden: { opacity: 0, filter: 'blur(10px)' },
   visible: {
     opacity: 1,
-    x: 0,
-    transition: springs.smooth,
+    filter: 'blur(0px)',
+    transition: {
+      duration: 0.6,
+      ease: [0.22, 1, 0.36, 1],
+    },
   },
 };
 
-// Slide in from right
-export const slideInRight: Variants = {
-  hidden: {
-    opacity: 0,
-    x: 50
-  },
+// Text reveal (character by character)
+export const textRevealContainer: Variants = {
+  hidden: { opacity: 1 },
   visible: {
     opacity: 1,
-    x: 0,
-    transition: springs.smooth,
+    transition: {
+      staggerChildren: 0.02,
+      delayChildren: 0.1,
+    },
   },
 };
 
-// Button hover animation props
-export const buttonHover = {
-  whileHover: { scale: 1.02 },
-  whileTap: { scale: 0.98 },
-  transition: springs.snappy,
-};
-
-// Card hover animation props
-export const cardHover = {
-  whileHover: {
-    y: -4,
-    transition: springs.snappy,
-  },
-};
-
-// Icon hover animation props
-export const iconHover = {
-  whileHover: {
-    scale: 1.1,
-    rotate: 3
-  },
-  transition: springs.bouncy,
-};
-
-// Dropdown animation variants
-export const dropdownVariants: Variants = {
-  hidden: {
-    opacity: 0,
-    y: 10,
-    scale: 0.95
-  },
+export const textRevealChar: Variants = {
+  hidden: { opacity: 0, y: 20 },
   visible: {
     opacity: 1,
     y: 0,
-    scale: 1,
-    transition: springs.snappy,
-  },
-  exit: {
-    opacity: 0,
-    y: 10,
-    scale: 0.95,
     transition: {
-      duration: 0.15,
+      duration: 0.4,
+      ease: [0.22, 1, 0.36, 1],
     },
   },
 };
 
-// Accordion animation variants
-export const accordionVariants: Variants = {
+// Slide up with clip
+export const slideUpClip: Variants = {
   hidden: {
-    height: 0,
-    opacity: 0
+    opacity: 0,
+    y: '100%',
+    clipPath: 'inset(100% 0 0 0)',
   },
   visible: {
-    height: 'auto',
+    opacity: 1,
+    y: '0%',
+    clipPath: 'inset(0% 0 0 0)',
+    transition: {
+      duration: 0.8,
+      ease: [0.22, 1, 0.36, 1],
+    },
+  },
+};
+
+// Card hover effect
+export const cardHover = {
+  rest: { scale: 1, y: 0 },
+  hover: {
+    scale: 1.02,
+    y: -8,
+    transition: {
+      duration: 0.3,
+      ease: [0.22, 1, 0.36, 1],
+    },
+  },
+};
+
+// Icon bounce
+export const iconBounce = {
+  rest: { scale: 1, rotate: 0 },
+  hover: {
+    scale: 1.1,
+    rotate: [0, -10, 10, 0],
+    transition: {
+      duration: 0.4,
+      ease: [0.22, 1, 0.36, 1],
+    },
+  },
+};
+
+// Draw line animation (for SVG paths)
+export const drawLine: Variants = {
+  hidden: { pathLength: 0, opacity: 0 },
+  visible: {
+    pathLength: 1,
     opacity: 1,
     transition: {
-      height: springs.gentle,
-      opacity: { duration: 0.2, delay: 0.1 },
-    },
-  },
-  exit: {
-    height: 0,
-    opacity: 0,
-    transition: {
-      height: springs.gentle,
-      opacity: { duration: 0.15 },
+      pathLength: { duration: 1.5, ease: 'easeInOut' },
+      opacity: { duration: 0.3 },
     },
   },
 };
 
-// Parallax scroll helper
-export const parallaxRange = (start: number, end: number) => ({
-  inputRange: [0, 1],
-  outputRange: [start, end],
-});
+// Parallax scroll values (use with useTransform)
+export const parallaxValues = {
+  slow: [0, -50],
+  medium: [0, -100],
+  fast: [0, -150],
+} as const;
 
-// Viewport options for whileInView
-export const viewportOnce = {
-  once: true,
-  margin: '-50px'
-};
-
-export const viewportRepeat = {
-  once: false,
-  margin: '-100px'
-};
+// Viewport settings for whileInView
+export const viewportOnce = { once: true, margin: '-100px' };
+export const viewportRepeat = { once: false, margin: '-100px' };

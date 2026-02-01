@@ -15,6 +15,10 @@
                 "hooks": [
                     {
                         "type": "command",
+                        "command": "node $CLAUDE_PROJECT_DIR/.claude/hooks/auto-memory.js"
+                    },
+                    {
+                        "type": "command",
                         "command": "node $CLAUDE_PROJECT_DIR/.claude/hooks/pre-tool-use.js"
                     }
                 ]
@@ -46,6 +50,10 @@
             {
                 "matcher": "",
                 "hooks": [
+                    {
+                        "type": "command",
+                        "command": "node $CLAUDE_PROJECT_DIR/.claude/hooks/memory-reminder.js"
+                    },
                     {
                         "type": "command",
                         "command": "node $CLAUDE_PROJECT_DIR/.claude/hooks/play-sound.js"

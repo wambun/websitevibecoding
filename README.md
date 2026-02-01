@@ -186,8 +186,67 @@ vercel
 
 MIT
 
-## Majic Prompt
+---
 
-## "Use the Firecrawl script to fetch data from [OLD_SITE_URL] for 'old' and [NEW_REFERENCE_URL] for 'new'. Then read prompt.md and start Phase 1."
+## Quick Start (One-Liner Workflow)
 
-## claude --dangerously-skip-permissions
+### Step 1: Open Terminal & Start Claude
+```bash
+claude --dangerously-skip-permissions
+```
+
+### Step 2: Paste This (Replace Placeholders)
+```
+/init-project "CLIENT_NAME" --old "OLD_SITE_URL" --new "DESIGN_REFERENCE_URL"
+```
+
+### That's It.
+
+Claude will autonomously:
+1. Initialize memory tracking
+2. Fetch old site data via Firecrawl
+3. Fetch design reference via Firecrawl
+4. Analyze the design (colors, typography, spacing, animations)
+5. Generate PRD with sitemap
+6. Build navigation → footer → home → all pages
+7. Handle context transitions automatically
+8. Keep going until the project is done
+
+### Example
+```
+/init-project "Acme Corp" --old "https://acme-corp.com" --new "https://awwwards-site.com"
+```
+
+### What Happens Behind the Scenes
+
+```
+┌─────────────────────────────────────────────────────────────┐
+│  YOUR INPUT                    CLAUDE (Fully Autonomous)    │
+├─────────────────────────────────────────────────────────────┤
+│                                                             │
+│  /init-project "..."  ───────►  Initialize memory           │
+│                                 Firecrawl both sites        │
+│                                 Analyze design              │
+│                                 Generate PRD                │
+│                                 Build all components        │
+│                                 Auto-save progress          │
+│                                 Handle context handoffs     │
+│                                 Continue until done         │
+│                                                             │
+│  (Check in occasionally)  ◄───  Progress updates            │
+│                                                             │
+└─────────────────────────────────────────────────────────────┘
+```
+
+### Resuming After Break / Context Limit
+
+Just start a new Claude session. The auto-memory system detects it and continues where it left off.
+
+```bash
+claude --dangerously-skip-permissions
+# Just type anything - memory auto-loads
+```
+
+### Design Mandate
+
+The system clones the design from `client/new` **exactly** - same layout, colors, typography, spacing, and animations. Only the content (text, images, data) comes from `client/old`. The result is visually indistinguishable from the design reference.
