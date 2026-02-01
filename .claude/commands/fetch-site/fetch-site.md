@@ -186,7 +186,13 @@ Using Playwright (required for design):
 
 7. Extract computed styles:
    - Primary colors (backgrounds, text, accents)
-   - Font families and sizes
+   - **TYPOGRAPHY (CRITICAL)**:
+     * Font families (check Google Fonts, Adobe Fonts, or custom)
+     * Font weights for each usage (headings, body, buttons)
+     * Font sizes for h1, h2, h3, h4, body, small text
+     * Line heights
+     * Letter spacing (especially for headings, buttons, nav)
+     * Text transforms (uppercase, capitalize, etc.)
    - Spacing patterns
    - Border radius values
 
@@ -208,9 +214,55 @@ Using Playwright (required for design):
 - Text: [hex]
 - Accent: [hex]
 
-## Typography
-- Headings: [font-family], [weights]
-- Body: [font-family], [size], [line-height]
+## Typography (CRITICAL - Must Match Exactly)
+
+### Font Families
+- **Headings**: [font-family] (e.g., "Inter", "Playfair Display")
+- **Body**: [font-family]
+- **Accent/Display**: [font-family if different]
+- **Source**: [Google Fonts / Adobe Fonts / Custom]
+
+### Font Sizes
+| Element | Desktop | Mobile |
+|---------|---------|--------|
+| H1 | [size] | [size] |
+| H2 | [size] | [size] |
+| H3 | [size] | [size] |
+| H4 | [size] | [size] |
+| Body | [size] | [size] |
+| Small | [size] | [size] |
+| Nav Links | [size] | [size] |
+| Buttons | [size] | [size] |
+
+### Font Weights
+- H1: [weight, e.g., 700]
+- H2: [weight]
+- H3: [weight]
+- Body: [weight]
+- Bold/Strong: [weight]
+- Nav Links: [weight]
+- Buttons: [weight]
+
+### Line Heights
+- Headings: [value, e.g., 1.1 or 120%]
+- Body: [value, e.g., 1.6 or 160%]
+
+### Letter Spacing
+- Headings: [value, e.g., -0.02em]
+- Body: [value]
+- Buttons/Nav: [value]
+- Any uppercase text: [value]
+
+### Text Transforms
+- Navigation: [uppercase / capitalize / none]
+- Buttons: [uppercase / capitalize / none]
+- Headings: [if any special treatment]
+
+### Implementation Notes
+```css
+/* Add to globals.css or tailwind.config.js */
+/* Font import URL: [Google Fonts URL or setup instructions] */
+```
 
 ## Spacing
 - Section padding: [values]

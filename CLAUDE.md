@@ -209,6 +209,50 @@ For premium, modern websites:
 - **Visual Balance**: Verify decorative elements (initials, icons, badges) are properly positioned
 - **Mobile-First**: Ensure all layouts work on mobile before desktop refinements
 
+## Typography Standards (CRITICAL)
+
+**Typography is what makes a design feel premium. It MUST match the design reference exactly.**
+
+### Requirements
+
+1. **Font Families**: Use the EXACT fonts from the design reference
+   - Check Google Fonts, Adobe Fonts, or the site's CSS
+   - Add font imports to `app/layout.tsx` or `globals.css`
+   - Configure in `tailwind.config.js` if using custom fonts
+
+2. **Font Sizes**: Match the design reference hierarchy
+   - Extract sizes for h1, h2, h3, h4, body, small
+   - Note differences between desktop and mobile
+   - Use Tailwind's responsive prefixes (`text-4xl md:text-6xl`)
+
+3. **Font Weights**: Use correct weights for each element
+   - Headings often use 600-800
+   - Body typically 400
+   - Buttons/nav may differ
+
+4. **Line Height**: Critical for readability
+   - Headings: typically tight (1.1-1.2)
+   - Body: typically relaxed (1.5-1.7)
+   - Use `leading-tight`, `leading-relaxed`, or custom values
+
+5. **Letter Spacing**: Often overlooked but important
+   - Headings may use negative tracking (`tracking-tight`)
+   - Uppercase text often needs positive tracking (`tracking-wide`)
+
+6. **Text Transforms**: Note any special treatments
+   - Navigation in uppercase?
+   - Buttons capitalized?
+
+### Verification
+
+Before completing any page, verify typography matches the design reference:
+- [ ] Correct font family loaded and applied
+- [ ] Font sizes match for all heading levels
+- [ ] Font weights match the reference
+- [ ] Line heights feel the same
+- [ ] Letter spacing applied where needed
+- [ ] Text transforms match (uppercase, etc.)
+
 ## Link & Integration Audit
 
 Before deployment, verify:

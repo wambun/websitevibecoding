@@ -243,13 +243,23 @@ Mark work unit: "Analyze design reference visuals"
 Analyze the content in `client/new/`:
 - Layout patterns and spacing
 - Color palette
-- Typography (fonts, sizes, weights)
+
+**TYPOGRAPHY (CRITICAL - THIS DEFINES THE DESIGN):**
+- **Font families**: Identify exact fonts (check Google Fonts, Adobe Fonts, or inspect CSS)
+- **Font sizes**: Document h1, h2, h3, h4, body, small for desktop AND mobile
+- **Font weights**: Note weight for each heading level, body, buttons, nav
+- **Line heights**: Capture for headings and body text
+- **Letter spacing**: Especially for headings, navigation, buttons
+- **Text transforms**: Note any uppercase, capitalize treatments
+
+The typography MUST be implemented exactly as the design reference. This is non-negotiable.
+
 - Animation patterns
 - Component structure
 - Navigation patterns
 - Footer structure
 
-Document findings in `Memory/architecture.md`.
+Document findings in `Memory/architecture.md` AND create `client/new/design-tokens.md` with full typography specs.
 
 ### Step 10: Content Mapping Verification
 
